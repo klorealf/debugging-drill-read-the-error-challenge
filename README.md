@@ -48,7 +48,7 @@ The first step in reading this stack trace is to look at the first line. In Figu
 
 *Figure 3.* Identifying the line number where the bug presented itself.
 
-Continuing to read the stack trace, we see a number just to the right of the file path we just read (see Figure 3). That number is the *line number* where this error occurred. We now know that the error occurred in `greetings.rb` on the 11th line of the file.  How nice of Ruby to help us narrow this down!
+Continuing to read the stack trace, we see a number just to the right of the file path we just read (see Figure 3). That number is the *line number* where this error occurred. We now know that the error occurred in `greetings.rb` on the 12th line of the file.  How nice of Ruby to help us narrow this down!
 
 
 ![Example 4](./readme-assets/slides/canvas-4.png)
@@ -71,7 +71,7 @@ Reading this error message is the *most important part of reading a stack trace*
 
 *Figure 6*. Identifying how the code executed until the bug presented itself.
 
-Now that Ruby has told us about the error, it's going to help us trace what led to the error. In Figure 6 we see that Ruby is telling us that the error in `create_student` occurred because the faulty `create_student` method was run by the `student_greeting` method on Line 21 of `greetings.rb`.
+Now that Ruby has told us about the error, it's going to help us trace what led to the error. In Figure 6 we see that Ruby is telling us that the error in `create_student` occurred because the faulty `create_student` method was run by the `student_greeting` method on Line 20 of `greetings.rb`.
 
 Ruby is helping us trace the path of execution through the program. It wants us to see how the error happened by showing us how we reached the faulty line of code.
 
@@ -86,7 +86,7 @@ If we continue down the stack trace, we see that it was `runner.rb` on Line 3 th
 
 If we read it bottom-to-top, we can say:
 
-> The code on Line 3 of `runner.rb` called the code on Line 21 of `greetings.rb` which in turn called the code on Line 11 of `greetings.rb`. The code on Line 11 crashes because Ruby didn't recognize the undefined local variable or method called `lsat`.
+> The code on Line 3 of `runner.rb` called the code on Line 20 of `greetings.rb` which in turn called the code on Line 12 of `greetings.rb`. The code on Line 12 crashes because Ruby didn't recognize the undefined local variable or method called `lsat`.
 
 
 ![Example 8](./readme-assets/slides/canvas-8.png)
@@ -95,9 +95,9 @@ If we read it bottom-to-top, we can say:
 
 Putting all the pieces of this stack trace together (see Figure 8), we're able to see the following:
 
-With this stack trace we have learned that Line 11 of `greetings.rb` was executed as part of the `create_student` method. When it ran, the program was unable to find the variable `lsat`, and it crashed. This all happened because we ran `runner.rb` in the terminal, and it called `student_greeting` which called our buggy method `create_student`.
+With this stack trace we have learned that Line 12 of `greetings.rb` was executed as part of the `create_student` method. When it ran, the program was unable to find the variable `lsat`, and it crashed. This all happened because we ran `runner.rb` in the terminal, and it called `student_greeting` which called our buggy method `create_student`.
 
-So why couldn't Ruby find `lsat` on Line 11 of `greetings.rb`? Well, this is the most common bug of all, we had a typo!
+So why couldn't Ruby find `lsat` on Line 12 of `greetings.rb`? Well, this is the most common bug of all, we had a typo!
 
 
 ##Releases
@@ -134,4 +134,3 @@ Our code is going to contain bugs.  Learning how to approach fixing them is a re
 There is usually more than one way to fix a bug.  In this challenge, our options for fixing bugs were limited because we were not able to change the tests (i.e., how we wanted to call the methods and how they behaved).
 
 Here's a juicy question: why might we decide to rewrite the *invocation* of a method as opposed to the *definition* of the method?  In a small program like this, the code is flexible enough to warrant either choice. When working on larger applications, you have to constantly be aware of *how* you are fixing bugs. Fixing one bug can easily cause more bugs or confusion down the line if you are not careful.
-
