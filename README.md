@@ -100,8 +100,9 @@ With this stack trace we have learned that Line 12 of `greetings.rb` was execute
 So why couldn't Ruby find `lsat` on Line 12 of `greetings.rb`? Well, this is the most common bug of all, we had a typo!
 
 
-##Releases
-###Release 0: Method Definitions
+## Releases
+
+### Release 0: Method Definitions
 ```bash
 $ rspec spec/mean_spec.rb
 ```
@@ -114,7 +115,7 @@ We have two tests describing how we want the `mean` method to function; the test
 Don't change the tests.  Rather, change the method *definition* in order to pass the tests.  When both tests pass, the bug is fixed.
 
 
-###Release 1: Type Error
+### Release 1: Type Error
 We'll now debug the `sort` method, which is defined in `sort.rb`.
 
 Ruby is a [dynamically typed](http://en.wikipedia.org/wiki/Type_system#Dynamic_typing) programming language.  When we assign variables, we don't have to specify their assigned values' types.  In other words, we don't have to declare that that the variable `name` is an instance of the `String` class and variable `numbers` in an instance of the `Array` class.  And when we define methods that accept arguments, we don't have to specify that the arguments are going to be instances of any particular classes.
@@ -128,7 +129,7 @@ To begin debugging the `sort` method, let's get information about what's going w
 When all the tests pass, the bug is fixed. As with debugging the `mean` method, don't change the tests.  Rather, change the method in order to fix the bug.
 
 
-##Conclusion
+## Conclusion
 Our code is going to contain bugs.  Learning how to approach fixing them is a real skill.
 
 There is usually more than one way to fix a bug.  In this challenge, our options for fixing bugs were limited because we were not able to change the tests (i.e., how we wanted to call the methods and how they behaved).
