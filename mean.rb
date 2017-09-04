@@ -3,6 +3,7 @@
 # In other words, rewrite the method so that it can take any number of arguments.
 
 
-def mean(numbers)
+def mean(arguments)
+	length = arguments.length
   numbers.inject(:+) / numbers.length
 end
